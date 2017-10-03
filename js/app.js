@@ -2,6 +2,7 @@ function viewModel(){
 		this.name = "Anna";
 		this.score = ko.observable(0);
 		this.imgsrc = "img/434164568_fea0ad4013_z.jpg";
+		this.nickname = "NickNames";
 		this.incrementcounter = function(){
 			this.score(this.score()+1);
 		};
@@ -11,6 +12,7 @@ function viewModel(){
 			return this.score() >= 10 ? "teen" : "child";
 		}, this);*/
 
+//add levels
 		this.level = ko.computed(function(){
 			var clicks = this.score();
 			if(clicks >= 6 && clicks <= 10){
@@ -32,6 +34,13 @@ function viewModel(){
 				return "Newborn"
 			}
 		}, this);
+//add nicknames
+this.nameslist = ko.observableArray(["Cutie","Puppy","Raju"]);
+		/*this.nameslist = ko.observableArray([
+		{names: "Cutie"},
+		{names: "Puppy"},
+		{names: "Raju"}]);*/
+
 }
 
 ko.applyBindings(new viewModel());
