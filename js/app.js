@@ -1,10 +1,10 @@
-var cats = function(){
+var cats = function(data){
 
-		this.name = "Anna";
-		this.score = ko.observable(0);
-		this.imgsrc = "img/434164568_fea0ad4013_z.jpg";
-		this.nickname = "NickNames";
-		this.nameslist = ko.observableArray(["Cutie","Puppy","Raju"]);
+		this.name = ko.observable(data.name);
+		this.score = ko.observable(data.score);
+		this.imgsrc = ko.observable(data.imgsrc);
+		this.nickname = ko.observable(data.nickname);
+		this.nameslist = ko.observableArray(data.nameslist);
 
 		this.level = ko.computed(function(){
 			var clicks = this.score();
@@ -31,7 +31,14 @@ var cats = function(){
 
 var viewModel = function(){
 	var self = this;
-	this.currentcat = ko.observable(new cats());
+	this.currentcat = ko.observable(new cats(
+		{
+			name: "Anna",
+			score: 0,
+			nickname: "NickNames",
+			imgsrc: "img/434164568_fea0ad4013_z.jpg",
+			nameslist: ["Cutie","Puppy","Raju"]
+		}));
 
 		this.incrementcounter = function(){
 		//this.score(this.score()+1);
