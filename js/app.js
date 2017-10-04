@@ -30,10 +30,12 @@ var cats = function(){
 }
 
 var viewModel = function(){
+	var self = this;
 	this.currentcat = ko.observable(new cats());
 
 		this.incrementcounter = function(){
-		this.currentcat().score(this.currentcat().score()+1);
+		//this.score(this.score()+1);
+		self.currentcat().score(self.currentcat().score()+1);
 		};
 }
 	
