@@ -6,12 +6,15 @@
 </head>
 <body>
     <div data-bind="with: currentcat">
+        <ul data-bind="foreach: catlist">
+            <li data-bind="text: name, click: setcat"></li>
+        </ul>
 
         <h1 data-bind="text: name"></h1>
         <h2 data-bind="text: level"></h2>
         <div data-bind="text: score"></div>
         <img src="" alt="cute cat" data-bind="attr: {src: imgsrc}, click: $parent.incrementcounter">
-        <p data-bind="text: nickname"></p>
+        <p data-bind="text: nickname">Nicknames</p>
         <ul data-bind="foreach: nameslist">
             <li data-bind="text: $data"></li></ul>
 
